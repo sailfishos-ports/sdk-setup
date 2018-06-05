@@ -80,6 +80,8 @@ Requires:   ssu >= 0.43.2
 Requires:   git
 Requires:   tar
 Requires:   p7zip-full
+Requires:   /usr/bin/python3
+Requires:   bash4
 Conflicts:  sdk-harbour-rpmvalidator < 1.49
 
 %description -n sdk-utils
@@ -197,6 +199,7 @@ cp src/sdk-motd %{buildroot}%{_bindir}/
 cp src/rpmvalidation %{buildroot}%{_bindir}/
 ln -sf rpmvalidation %{buildroot}%{_bindir}/rpmvalidation.sh
 cp src/git-lltb %{buildroot}%{_bindir}/
+cp src/sdk-make-qmltypes %{buildroot}%{_bindir}/
 
 # update version info to scripts
 sed -i "s/VERSION_FROM_SPEC/%{version}/" %{buildroot}%{_bindir}/mb2
@@ -315,6 +318,7 @@ fi
 %{_bindir}/rpmvalidation.sh
 %{_bindir}/rpmvalidation
 %{_bindir}/git-lltb
+%{_bindir}/sdk-make-qmltypes
 %config %{_sysconfdir}/ssh/ssh_config.sdk
 %config %{_sysconfdir}/bash_completion.d/mb2.bash
 %config %{_sysconfdir}/bash_completion.d/sdk-assistant.bash
